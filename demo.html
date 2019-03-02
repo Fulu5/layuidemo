@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <title>layui练习</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="layui/css/layui.css" />
+</head>
+
+<style>
+  .anim-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      text-align: center;
+      line-height: 100px;
+    }
+  </style>
+
+<body>
+  <!-- 选项卡 -->
+  <div class="layui-tab">
+    <ul class="layui-tab-title">
+      <li class="layui-this">
+        标题一
+        <i class="layui-icon layui-icon-face-smile" style="color: coral"></i>
+      </li>
+      <li>标题二</li>
+      <li>标题三</li>
+    </ul>
+  </div>
+  <div class="layui-tab-content">
+    <div class="layui-tab-item layui-show">内容1</div>
+    <div class="layui-tab-item">内容2</div>
+    <div class="layui-tab-item">内容3</div>
+  </div>
+  <!-- 栅格 -->
+  <div class="layui-row">
+    <div class="layui-col-md4 layui-bg-red">
+      1/3
+    </div>
+    <div class="layui-col-md4 layui-bg-orange">
+      1/3
+    </div>
+    <div class="layui-col-md4 layui-bg-green">
+      1/3
+    </div>
+  </div>
+  <div class="layui-row">
+    <div class="layui-col-md4 layui-bg-blue">
+      4/12
+    </div>
+    <div class="layui-col-md4 layui-col-md-offset4 layui-bg-cyan">
+      偏移4列，从而在最右
+    </div>
+  </div>
+  <!-- 动画 -->
+  <!-- <div class="layui-anim layui-anim-rotate layui-anim-loop layui-bg-cyan anim-circle">
+      xuan
+    </div> -->
+  <!-- 按钮 -->
+  <button class="layui-btn">
+    <i class="layui-icon">&#xe608;</i> 添加
+  </button>
+  <!-- 按钮组 -->
+  <div class="layui-btn-group">
+    <button class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe654;</i></button>
+    <button class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe642;</i></button>
+    <button class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe640;</i></button>
+    <button class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe602;</i></button>
+  </div>
+  <!-- 表单 -->
+  <form action="" class="layui-form">
+    <div class="layui-form-item">
+      <label for="" class="layui-form-label">输入框</label>
+      <div class="layui-input-block">
+        <input type="text" class="layui-input" name="title" required lay-verify="required" placeholder="请输入标题"
+          accomplete="off">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label for="" class="layui-form-label">密码框</label>
+      <div class="layui-input-inline">
+        <input type="text" class="layui-input" name="password" required lay-verify="required" placeholder="请输入密码"
+          accomplete="off">
+      </div>
+      <div class="layui-form-mid layui-word-aux">辅助文字</div>
+    </div>
+    <div class="layui-form-item">
+      <label for="" class="layui-form-label">选择框</label>
+      <div class="layui-input-block">
+        <select name="city" id="" lay-verify="required">
+          <option value=""></option>
+          <option value="0">北京</option>
+          <option value="1">上海</option>
+          <option value="2">广州</option>
+          <option value="3">深圳</option>
+          <option value="4">杭州</option>
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label for="" class="layui-form-label">复选框</label>
+      <div class="layui-input-block">
+        <input type="checkbox" name="like[write]" title="写作">
+        <input type="checkbox" name="like[read]" title="阅读" checked>
+        <input type="checkbox" name="like[dai]" title="发呆">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label for="" class="layui-form-label">开关</label>
+      <div class="layui-input-block">
+        <input type="checkbox" name="switch" lay-skin="switch">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label for="" class="layui-form-label">单选框</label>
+      <div class="layui-input-block">
+        <input type="radio" name="sex" value="男" title="男">
+        <input type="radio" name="sex" value="女" title="女" checked>
+      </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+      <label for="" class="layui-form-label">文本域</label>
+      <div class="layui-input-block">
+        <textarea name="desc" placeholder="请输入内容" class="layui-textarae"></textarea>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn" lay-submit lay-filter="formData">立即提交</button>
+        <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+      </div>
+    </div>
+  </form>
+  <form class="layui-form layui-form-pane" action="">
+    内部结构都一样，值得注意的是 复选框/开关/单选框 这些组合在该风格下需要额外添加 pane属性（否则会看起来比较别扭），如：
+    <div class="layui-form-item" pane>
+      <label class="layui-form-label">单选框</label>
+      <div class="layui-input-block">
+        <input type="radio" name="sex" value="男" title="男">
+        <input type="radio" name="sex" value="女" title="女" checked>
+      </div>
+    </div>
+  </form>
+
+
+  <!-- 第一步：编写模版。你可以使用一个script标签存放模板，如： -->
+  <!-- 可以将模板存储在页面或其它任意位置 -->
+  <script id="tpldemo" type="text/html">
+    <h3>{{d.title}}
+      <ul>
+        {{# layui.each(d.list, function(index, item) { }}
+          <li>
+            <span>{{item.modname}}</span>
+            <span>{{item.alias}}:</span>
+            <span>{{item.site || '暂无'}}</span>
+          </li>
+        {{# }); }}
+        {{# if (d.list.length === 0) { }}
+          无数据
+        {{# } }}  
+      </ul>
+    </h3>
+  </script>
+  <!-- 第二步：建立视图。用于呈现渲染结果。 -->
+  <!-- 模板引擎 -->
+  <div id="view"></div>
+
+  <!-- table -->
+  <div class="" id="table_container" lay-filter="table_container_filter"></div>
+
+  <!-- table转换静态表格 -->
+  <table lay-filter="table_change_filter">
+    <thead>
+      <tr>
+        <th lay-data="{field:'username', width:100}">昵称</th>
+        <th lay-data="{field:'experience', width:80, sort:true}">积分</th>
+        <th lay-data="{field:'sign'}">签名</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>贤心1</td>
+        <td>66</td>
+        <td>人生就像是一场修行a</td>
+      </tr>
+      <tr>
+        <td>贤心2</td>
+        <td>88</td>
+        <td>人生就像是一场修行b</td>
+      </tr>
+      <tr>
+        <td>贤心3</td>
+        <td>33</td>
+        <td>人生就像是一场修行c</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- table二级表头 -->
+  <table id="bardemoId" lay-filter="bardemo" class="layui-table" lay-data="{基础参数}">
+    <thead>
+      <tr>
+        <th lay-data="{field:'username', width:80}" rowspan="2">联系人</th>
+        <th lay-data="{field:'amount', width:120}" rowspan="2">金额</th>
+        <th lay-data="{align:'center'}" colspan="3">地址</th>
+      </tr>
+      <tr>
+        <th lay-data="{field:'province', width:80}">省</th>
+        <th lay-data="{field:'city', width:120}">市</th>
+        <th lay-data="{field:'county', width:300}">详细</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>林殊</td>
+        <td>300</td>
+        <td>陕西省</td>
+        <td>西安市</td>
+        <td>软件新城2期</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- bardemo -->
+  <!-- <div id="bardemo_container"></div> -->
+  <script type="text/html" id="bardemo_templet">
+    <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+      <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+      <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+
+      {{# if(d.auth != '') { }}
+        <a class="layui-btn layui-btn-xs" lay-event="check">审核</a>
+      {{# } }}
+    </script>
+
+
+
+  <script src="layui/layui.js"></script>
+  <script>
+    layui.config({
+      base: "res/js/modules/"
+    });
+    layui.use(['layer', 'form', 'element', 'mymod', 'laytpl', 'table', 'bardemo'], function () {
+      var layer = layui.layer,
+        form = layui.form,
+        element = layui.element,
+        mod = layui.mymod,
+        tpl = layui.laytpl,
+        table = layui.table;
+
+      //监听提交
+      form.on('submit(formData)', function (data) {
+        layer.msg(JSON.stringify(data.field));
+        return false;
+      });
+
+      //模板引擎
+      var string = tpl('{{d.name}}{{d.title}}').render({
+        name: 'layui',
+        title: '模板引擎'
+      });
+      mod.hello(string);
+
+      //第三步：渲染模版
+      var data = {
+        "title": "layui 常用模块",
+        "list": [{
+          "modname": "弹层",
+          "alias": "layer",
+          "site": "layer.layui.com"
+        }, {
+          "modname": "表单",
+          "alias": "form"
+        }]
+      };
+
+      var getTpl = tpldemo.innerHTML,
+        view = document.getElementById('view');
+      tpl(getTpl).render(data, function (html) {
+        view.innerHTML = html;
+      });
+
+      //转换静态表格
+      table.init('table_change_filter', {
+        limit: 30,
+        toolbar: 'default',
+        defaultToolbar: ['print', 'exports'],
+      });
+
+
+    });
+  </script>
+</body>
+
+</html>
